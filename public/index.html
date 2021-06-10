@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Touch 10 Lite</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bulma.min.css">
+        <link rel="stylesheet" href="css/all.css">
+        <script>
+            function loadScriptSync (src) {
+                var s = document.createElement('script');
+                s.src = src;
+                s.type = "text/javascript";
+                s.async = false;                                 // <-- this is important
+                document.getElementsByTagName('head')[0].appendChild(s);
+            }
+            loadScriptSync("js/bundle3.js");
+            loadScriptSync("js/codec.js");
+        </script>
+        <style>
+            #log {
+                opacity: 1;
+                transition: 1s opacity;
+                text-align: center;
+                font-size:12px;
+            }
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            body::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* Hide scrollbar for IE, Edge and Firefox */
+            body {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+                background-image: url('img/bkg2.png');
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id = "control_panel" class="container" style="height: 375px;">
+            <div id = "title_tab" class="is-hidden field is-grouped is-grouped-left pt-2">
+            <button class="button is-hidden is-dark is-small ml-2 mt-2" id="bolt" type="submit" title="Disconnect">
+                <span class="icon is-small has-text-danger">
+                    <i class="fas fa-bolt"></i>
+                </span>
+            </button>
+            <div id="sysinfo" class="tag mt-3 ml-2"></div>
+            </div>
+            <div id = "usb_tab" class="is-hidden field is-grouped is-grouped-centered pt-6">
+                <button class="button" id="usb_button" title="USB Link"><img src="USB_icon.svg" style="height: 20px;"></button>
+                <button class="button ml-6 is-info" id="vol_dn_button" title="Volume Down"><i class="fas fa-volume-down"></i></button>
+                <button class="button ml-2 is-info" id="vol_up_button" title="Volume Up"><i class="fas fa-volume-up"></i></button>
+            </div>
+            <div id = "make_call_tab" class="is-hidden field is-grouped is-grouped-centered pt-6">
+                <input id="sipuri" class="input m-1" type="email" placeholder="e.g. user@domain.com" style="width: 250px;">
+                <button class="button m-1 is-success" id="dial_button">Call</button>
+            </div>
+            <div id = "in_call_tab" class="is-hidden field is-grouped is-grouped-centered pt-6">
+                <button class="button m-1 is-light" id="mute_button">Mute</button>
+                <button class="button m-1 is-danger" id="hangup_button">End</button>
+            </div>
+            <div id = "accept_call_tab" class="is-hidden field is-grouped is-grouped-centered pt-6">
+                <button class="button m-1 is-success" id="accept_button">Accept</button>
+                <button class="button m-1 is-danger" id="decline_button">Decline</button>
+            </div>
+            <form class="container pt-6" id="authenticate" style="width: 300px;">
+                <div class="field">
+                    <label class="label">Device IP</label>
+                    <div class="control">
+                    <input id="ipaddr" class="input" type="text" placeholder="e.g. 192.172.191.221">
+                    </div>
+                </div>
+
+                <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input id="username" class="input" type="text" placeholder="e.g. admin">
+                </div>
+                </div>
+            
+                <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input id = "pword" class="input" type="password" placeholder="********">
+                </div>
+                </div>
+
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control">
+                        <button class="button mt-2 is-info" id="codec_connect" type="submit">Connect</button>
+                    </div>
+                </div> 
+            </form>    
+        </div>
+
+        <div class="container is-fluid">
+            <div class="notification" style="text-align:center">
+                <h1 style="text-align:center" id="log">Enter Cisco codec information above to get started</h1>
+            </div>
+        </div>
+
+    </body>
+</html>
